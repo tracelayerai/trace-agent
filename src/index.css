@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── JetBrains Mono — critical data typography ── */
+.jb-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+.critical-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+}
+.data-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 13px;
+}
+.status-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ── Mobile optimization notice ── */
+.mobile-opt-notice {
+  display: none;
+}
+
+/* ── GaugeMetric hover / active ── */
+.gauge-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease !important;
+}
+.gauge-card:hover {
+  transform: translateY(-3px) scale(1.01) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15) !important;
+  border-color: #10B981 !important;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(16,185,129,0.08) 100%) !important;
+}
+.gauge-card:hover .gauge-label {
+  color: #10B981 !important;
+}
+.gauge-card:active {
+  transform: scale(0.99) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+.gauge-card.gauge-active {
+  border-color: #10B981 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+}
+
+@media (max-width: 767px) {
+  .mobile-opt-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #FEF3C7;
+    border: 1px solid #FBBF24;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-opt-notice p {
+    margin: 0;
+    font-size: 13px;
+    color: #92400E;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Responsive header layout */
+  .v3-case-header-ctas {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .v3-case-header-ctas button {
+    font-size: 12px !important;
+  }
+
+  .v3-status-row {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+  }
+
+  .v3-chips-row {
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .v3-case-header-ctas {
+    flex-direction: column !important;
+  }
+
+  .v3-case-header-ctas button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+* {
+  @apply antialiased;
+}
+
+html, body {
+  @apply h-full;
+}
+
+#root {
+  @apply h-full;
+}
