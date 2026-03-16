@@ -1,6 +1,6 @@
 # TraceAgent — Compliance Intelligence Platform
 
-Wireframe prototype for TraceAgent, an autonomous blockchain forensics tool built for institutional compliance analysts.
+Prototype for TraceAgent, an autonomous blockchain forensics tool built for institutional compliance analysts.
 
 ## Stack
 
@@ -21,4 +21,4 @@ npm run dev
 npm run build
 ```
 
-Deploy the `/dist` folder to Netlify.
+
