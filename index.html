@@ -2,15 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>TraceAgent - Blockchain Forensics</title>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+    <script>
+      var p = new URLSearchParams(window.location.search);
+      var r = p.get('demo_role');
+      if (r && ['analyst','lead','admin'].includes(r)) {
+        localStorage.setItem('trace_user_role', r);
+      }
+      // Expand full page height for Figma captures
+      if (window.location.hash.indexOf('figmacapture=') !== -1) {
+        var style = document.createElement('style');
+        style.textContent = 'html, body, #root { height: auto !important; min-height: 100vh; overflow: visible !important; } .overflow-hidden { overflow: visible !important; } .overflow-y-auto, .overflow-y-scroll { overflow: visible !important; }';
+        document.head.appendChild(style);
+      }
+    </script>
   </head>
   <body class="bg-page">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

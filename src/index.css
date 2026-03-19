@@ -1,6 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── JetBrains Mono — critical data typography ── */
+.jb-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+.critical-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+}
+.data-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 13px;
+}
+.status-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ── Mobile optimization notice ── */
+.mobile-opt-notice {
+  display: none;
+}
+
+
+@media (max-width: 767px) {
+  .mobile-opt-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #FEF3C7;
+    border: 1px solid #FBBF24;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-opt-notice p {
+    margin: 0;
+    font-size: 13px;
+    color: #92400E;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Responsive header layout */
+  .v3-case-header-ctas {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .v3-case-header-ctas button {
+    font-size: 12px !important;
+  }
+
+  .v3-status-row {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+  }
+
+  .v3-chips-row {
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .v3-case-header-ctas {
+    flex-direction: column !important;
+  }
+
+  .v3-case-header-ctas button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
 
 * {
   @apply antialiased;
@@ -12,4 +94,185 @@ html, body {
 
 #root {
   @apply h-full;
+}
+
+@layer base {
+  :root {
+    /* ── Shadcn semantic tokens → mapped to Trace brand ── */
+    --background:            #F5F7FA;
+    --foreground:            #111827;
+    --card:                  #FFFFFF;
+    --card-foreground:       #111827;
+    --popover:               #FFFFFF;
+    --popover-foreground:    #111827;
+    --primary:               #1B2D58;
+    --primary-foreground:    #FFFFFF;
+    --secondary:             #FAFBFC;
+    --secondary-foreground:  #374151;
+    --muted:                 #F3F4F6;
+    --muted-foreground:      #717A8C;
+    --accent:                #C6FF00;
+    --accent-foreground:     #070D1F;
+    --destructive:           #EF4444;
+    --destructive-foreground:#FFFFFF;
+    --border:                #D1D5DB;
+    --input:                 #D1D5DB;
+    --ring:                  #2563EB;
+    --radius:                0.625rem;   /* 10px = radius/md */
+
+    /* ── Sidebar (dark) ── */
+    --sidebar:               #0A1528;
+    --sidebar-foreground:    rgba(255,255,255,0.9);
+    --sidebar-primary:       #C6FF00;
+    --sidebar-primary-foreground: #070D1F;
+    --sidebar-accent:        rgba(198,255,0,0.08);
+    --sidebar-accent-foreground: #C6FF00;
+    --sidebar-border:        rgba(255,255,255,0.07);
+    --sidebar-ring:          #C6FF00;
+
+    /* ══ Trace Design Tokens — full token set ══════════════════ */
+
+    /* Text */
+    --trace-text-dark:       #111827;
+    --trace-text-body:       #374151;
+    --trace-text-light:      #5C6578;
+    --trace-text-muted:      #9CA3AF;
+    --trace-text-white:      #FFFFFF;
+
+    /* Accent */
+    --trace-lime:            #C6FF00;
+    --trace-lime-hover:      #B8E600;
+    --trace-orange:          #F59E0B;
+    --trace-red:             #EF4444;
+    --trace-green:           #10B981;
+    --trace-blue:            #2563EB;
+    --trace-teal:            #003C7E;
+
+    /* Backgrounds */
+    --trace-bg-page:         #F5F7FA;
+    --trace-bg-card:         #FAFBFC;
+    --trace-bg-light:        #F3F4F6;
+    --trace-bg-lighter:      #E5E7EB;
+    --trace-bg-white:        #FFFFFF;
+    --trace-bg-frame:        #070D1F;
+    --trace-bg-nav:          #0F1C3A;
+    --trace-bg-sidebar:      #0A1528;
+
+    /* Borders */
+    --trace-border-light:    #D1D5DB;
+    --trace-border-medium:   #B0BCC8;
+    --trace-border-table:    #ECEEF2;
+
+    /* Buttons */
+    --trace-btn-primary:     #1B2D58;
+    --trace-btn-primary-hover: #111F3E;
+    --trace-btn-primary-press: #152244;
+    --trace-btn-secondary-bg:  #FAFBFC;
+    --trace-btn-secondary-border: #E5E7EB;
+    --trace-btn-danger-border:  #EF4444;
+
+    /* Icons */
+    --trace-icon-rest:       #717A8C;
+    --trace-icon-hover:      #4A5568;
+    --trace-icon-muted:      #7B90AA;
+    --trace-icon-active:     #2563EB;
+
+    /* Links */
+    --trace-link:            #3B82F6;
+    --trace-link-hover:      #0F5A9F;
+
+    /* Roles */
+    --trace-role-analyst:    #9CA3AF;
+    --trace-role-lead:       #60A5FA;
+    --trace-role-admin:      #A78BFA;
+
+    /* Status chips */
+    --trace-status-open-bg:         #DBEAFE;
+    --trace-status-open-text:       #1D4ED8;
+    --trace-status-open-dot:        #3B82F6;
+    --trace-status-review-bg:       #EDE9FE;
+    --trace-status-review-text:     #5B21B6;
+    --trace-status-pending-bg:      #FEF3C7;
+    --trace-status-pending-text:    #92400E;
+    --trace-status-returned-bg:     #FEE2E2;
+    --trace-status-returned-text:   #991B1B;
+    --trace-status-approved-bg:     #D1FAE5;
+    --trace-status-approved-text:   #065F46;
+    --trace-status-closed-bg:       #F3F4F6;
+    --trace-status-closed-text:     #4B5563;
+    --trace-status-archived-text:   #9CA3AF;
+
+    /* Risk chips */
+    --trace-risk-critical-bg:  #FEE2E2;
+    --trace-risk-critical-text:#B91C1C;
+    --trace-risk-critical-dot: #EF4444;
+    --trace-risk-high-bg:      #FFF7ED;
+    --trace-risk-high-text:    #C2410C;
+    --trace-risk-high-dot:     #F97316;
+    --trace-risk-medium-bg:    #FFFBEB;
+    --trace-risk-medium-text:  #92400E;
+    --trace-risk-medium-dot:   #F59E0B;
+    --trace-risk-low-bg:       #DCFCE7;
+    --trace-risk-low-text:     #166534;
+    --trace-risk-low-dot:      #22C55E;
+
+    /* Callout variants */
+    --trace-callout-info-bg:       #EEF2FF;
+    --trace-callout-info-accent:   #6366F1;
+    --trace-callout-info-text:     #3730A3;
+    --trace-callout-success-bg:    #F0FDF4;
+    --trace-callout-success-accent:#10B981;
+    --trace-callout-success-text:  #064E3B;
+    --trace-callout-warning-bg:    #FFFBEB;
+    --trace-callout-warning-accent:#F59E0B;
+    --trace-callout-warning-text:  #78350F;
+    --trace-callout-critical-bg:   #FEF2F2;
+    --trace-callout-critical-accent:#EF4444;
+    --trace-callout-critical-text: #7F1D1D;
+
+    /* Radius */
+    --trace-radius-sm:   6px;
+    --trace-radius-md:   10px;
+    --trace-radius-lg:   16px;
+    --trace-radius-xl:   20px;
+    --trace-radius-xxl:  28px;
+    --trace-radius-pill: 50px;
+
+    /* Spacing */
+    --trace-space-xs:  4px;
+    --trace-space-sm:  8px;
+    --trace-space-md:  16px;
+    --trace-space-lg:  24px;
+    --trace-space-xl:  32px;
+    --trace-space-2xl: 48px;
+    --trace-space-3xl: 64px;
+
+    /* Typography */
+    --trace-font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+    --trace-font-mono:    'JetBrains Mono', monospace;
+    --trace-font-display: 'Sora', sans-serif;
+
+    /* Shadows */
+    --trace-shadow-card:     0 1px 4px rgba(0,0,0,0.04);
+    --trace-shadow-subtle:   0 1px 3px rgba(0,0,0,0.10);
+    --trace-shadow-elevated: 0 4px 12px rgba(0,0,0,0.15);
+    --trace-shadow-pressed:  0 1px 2px rgba(0,0,0,0.08);
+    --trace-shadow-nav:      0 4px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.04);
+    --trace-shadow-overlay:  -6px 0 28px rgba(0,0,0,0.09), -1px 0 4px rgba(0,0,0,0.04);
+
+    /* Transitions */
+    --trace-transition:      0.2s ease-in-out;
+    --trace-transition-fast: 0.15s ease-in-out;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--trace-font-sans);
+  }
+  html {
+    @apply font-sans;
+  }
 }
