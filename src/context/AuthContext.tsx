@@ -1,6 +1,7 @@
 import { createContext, useContext, useMemo } from 'react'
 import type { ReactNode } from 'react'
 import { useAuth as useClerkAuth, useUser } from '@clerk/clerk-react'
+import { getClerkHashRoute } from '@/lib/clerkUrls'
 
 export type Role = 'analyst' | 'lead' | 'admin'
 
@@ -165,7 +166,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const logout = async () => {
-    await signOut({ redirectUrl: '/login' })
+    await signOut({ redirectUrl: getClerkHashRoute('/login') })
   }
 
   const hasRole = (role: Role) => currentUser?.role === role
