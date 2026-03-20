@@ -352,9 +352,7 @@ export default function Sidebar({ expanded, setExpanded }: SidebarProps) {
   }, []);
 
   const handleSignOut = () => {
-    const from = encodeURIComponent(location.pathname);
-    logout?.();
-    navigate(`/login?from=${from}`);
+    void logout?.();
   };
 
   const handleOpenAnalysis = (item: AnalysisQueueItem) => {
