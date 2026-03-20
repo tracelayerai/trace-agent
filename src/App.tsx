@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
@@ -15,8 +15,10 @@ import ComponentLibraryPage from './pages/ComponentLibraryPage';
 import SsoCallbackPage from './pages/SsoCallbackPage';
 
 function App() {
+  const Router = import.meta.env.PROD ? HashRouter : BrowserRouter;
+
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         {/* Auth */}
         <Route path="/login" element={<LoginPage />} />
@@ -40,7 +42,7 @@ function App() {
         {/* Default → login */}
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
