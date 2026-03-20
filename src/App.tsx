@@ -12,6 +12,7 @@ import AnalysisPage from './pages/AnalysisPage';
 import DesignConfirmation from './pages/DesignConfirmation';
 import StyleGuidePage from './pages/StyleGuidePage';
 import ComponentLibraryPage from './pages/ComponentLibraryPage';
+import SsoCallbackPage from './pages/SsoCallbackPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         {/* Auth */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/login/sso-callback" element={<SsoCallbackPage />} />
 
         {/* Protected app routes */}
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
