@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import fullLogo from '@/assets/images/full_logo_text.svg';
 import loginBg from '@/assets/images/login_bg1.jpg';
 import { useAuth } from '@/context/AuthContext';
+import { getClerkHashRoute } from '@/lib/clerkUrls';
 
 interface FieldProps {
   label: string;
@@ -149,8 +150,8 @@ export default function LoginPage() {
     try {
       await signIn.authenticateWithRedirect({
         strategy,
-        redirectUrl: '/login/sso-callback',
-        redirectUrlComplete: redirectTo,
+        redirectUrl: getClerkHashRoute('/login/sso-callback'),
+        redirectUrlComplete: getClerkHashRoute(redirectTo),
       });
     } catch (error) {
       setErrorMessage(getErrorMessage(error));
