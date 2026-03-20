@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/trace-agent/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -14,4 +15,4 @@ export default defineConfig({
     port: 5173,
     strictPort: false, // Auto-increment to next available port
   },
-})
+}))
